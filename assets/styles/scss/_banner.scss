@@ -1,0 +1,43 @@
+.banner {
+	
+	.left {
+		position: relative;
+		z-index: 1;
+		padding-bottom: 138px;
+		
+		.inner {
+			
+			@include breakpoint(medium) {
+				width: 120%;
+				position: relative;
+			}
+			
+			h1 {
+				font-size: rem-calc(73);
+				line-height: 1.1095;
+				
+				@include breakpoint(medium) {
+					margin-left: -5%;
+				}
+				
+			}
+			
+			.btn-wrap {
+				padding-top: 2.6rem;
+				padding-right: 4.5rem;
+				text-align: right;
+			}
+			
+		}
+	}
+	
+	.right {
+		.inner.slider-wrap {
+			@include breakpoint(medium) {
+				width: 55.5vw;
+				margin-left: -6.6vw;
+			}
+		}
+	}
+	
+}

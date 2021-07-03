@@ -3,6 +3,102 @@
 Stylesheet: Global Stylesheet
 
 *************************************************/
+.font-alt {
+	font-family: $font-alt;	
+	font-weight: 400;
+}
+
+.primary-bg {
+	background-color: $brand-primary;
+}
+
+.secondary-bg {
+	background-color: $brand-secondary;
+}
+
+.gray-bg {
+	background-color: $brand-gray;
+}
+
+.color-white {
+	color: $white;
+}
+
+.color-secondary {
+	color: $brand-secondary;
+}
+
+/* progress bar */
+.slider-progress{
+	margin-top: 53px;
+	position: relative;
+	width: 55%;
+	height: 1px;
+	background-color: scale-color($button-background, $lightness: 71%);
+}
+.slider-progress span{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 0px;
+	height: 100%;
+	background-color: $brand-primary;
+	transition: width 0s linear;
+}
+.slider-progress span.active{
+	width: 100%;
+}
+
+// Step Cards
+.step-card {
+	margin-bottom: 1.5rem;
+	
+	.inner {
+		max-width: 320px;
+	
+		img {
+			margin-bottom: .85rem;
+		}
+		h3 {
+			color: $brand-primary;
+			margin-bottom: .65em;
+		}
+		
+	}
+	
+}
+
+// Red Gray
+.red-gray {
+	.primary-bg {
+	    display: flex;
+	    align-items: flex-end;
+	    flex: 0 1 38%;
+	    
+	    h2 {
+		    font-size: rem-calc(80);
+		    color: $white;
+	    }
+	    
+	}
+	.left {
+		padding: 3.9rem 1.7rem 3.9rem 3.7rem;
+	}
+}
+
+// Buttons
+button,
+.button {
+	line-height: 1;
+	text-transform: uppercase;
+	font-weight: 600;
+	
+&.secondary {
+	background-color: $brand-secondary;
+}
+	
+}
 
 /*********************
 POSTS & CONTENT STYLES
