@@ -36,7 +36,7 @@ get_header(); ?>
 							<div class="right cell small-12 xmedium-6">
 								<div class="inner slider-wrap">
 									<?php if( have_rows('banner_slider') ):?>
-									<div class="img-slider">
+									<div class="img-slider fade">
 										<?php while ( have_rows('banner_slider') ) : the_row();?>
 										
 											<?php 
@@ -205,35 +205,44 @@ get_header(); ?>
 				
 				<section class="offerings red-gray">
 					<div class="grid-container fluid">
-						<div class="grid-x grid-padding-x">	
+						<div class="grid-x grid-padding-x align-middle">
+							
+							<div class="cell small-12 xmedium-auto">	
 						
-							<div class="cell small-12 medium-shrink primary-bg">
-								<div class="inner primary-bg">
-									<h2 class="font-alt"><?php the_field('offerings_heading');?></h2>
-								</div>
-							</div>
-
-							<div class="cell auto gray-bg">
 								<div class="grid-x grid-padding-x">
-									<div class="inner left cell small-12 large-6">
-										<h3 class="h2 color-secondary"><?php the_field('package_1_heading');?> <span class="color-white"><?php the_field('package_1_price');?></span></h3>
-										<p class="color-white"><?php the_field('package_1_description');?></p>
-									</div>
-									<div class="right cell small-12 large-6">
-										<div class="inner">
-											<?php 
-											$image = get_field('offerings_accent_image');
-											if( !empty( $image ) ): ?>
-											    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-											<?php endif; ?>
-											<div class="secondary-bg">
-												<h3 class="h2"><?php the_field('addition_heading');?></h3>
-												<p><?php the_field('addition_items');?></p>
-											</div>
+						
+									<div class="cell small-12 xmedium-shrink primary-bg">
+										<div class="inner primary-bg">
+											<h2 class="font-alt"><?php the_field('offerings_heading');?></h2>
 										</div>
 									</div>
+		
+									<div class="cell auto gray-bg">
+											<div class="inner left">
+												<h3 class="h2 color-secondary"><?php the_field('package_1_heading');?> <span class="color-white"><?php the_field('package_1_price');?></span></h3>
+												<p class="color-white"><?php the_field('package_1_description');?></p>
+											</div>
+									</div>
+									
+								</div>
+							
+							</div>
+									
+							<div class="right cell small-12 large-shrink">
+								<div class="inner">
+									<?php 
+									$image = get_field('offerings_accent_image');
+									if( !empty( $image ) ): ?>
+									    <img class="show-for-xmedium" src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+									<?php endif; ?>
+									<div class="secondary-bg">
+										<h3 class="h2"><?php the_field('addition_heading');?></h3>
+										<p><?php the_field('addition_items');?></p>
+									</div>
 								</div>
 							</div>
+									
+
 							
 						</div>
 					</div>
@@ -241,18 +250,23 @@ get_header(); ?>
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">
 							<div class="cell small-12">			
-								<?php if( have_rows('banner_slider') ):?>
-								<div class="img-slider">
-									<?php while ( have_rows('banner_slider') ) : the_row();?>
+								<?php if( have_rows('offerings_slider') ):?>
+									<div class="img-slider slide-left">
+										<?php while ( have_rows('offerings_slider') ) : the_row();?>
+										
+											<?php 
+											$image = get_sub_field('single_slide');
+											if( !empty( $image ) ): ?>
+											<div class="slide">
+											    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+											</div>
+											<?php endif; ?>
 									
-										<?php 
-										$image = get_sub_field('single_slide');
-										if( !empty( $image ) ): ?>
-										    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-										<?php endif; ?>
-								
-									<?php endwhile;?>
-								</div>
+										<?php endwhile;?>
+									</div>
+									<div class="slider-progress">
+										<span></span>
+									</div>	
 								<?php endif;?>	
 							</div>
 						</div>
@@ -260,14 +274,15 @@ get_header(); ?>
 					
 				</section>	
 				
-				<section class="s4" style="background-image: url(<?php the_field('s4_background_image');?>)">
+				<section class="s4">
+					<div class="bg" style="background-image: url(<?php the_field('s4_background_image');?>)"></div>
 					<div class="mask"></div>
 					<div class="grid-container">
 						<div class="grid-x grid-padding-x">	
 							<div class="cell small-12 medium-8">
 								<h2 class="color-white"><?php the_field('s4_heading');?></h2>
 								<h3 class="color-white"><?php the_field('s4_sub-heading');?></h3>
-								<div  class="color-white"><?php the_field('s4_copy');?></div>
+								<div class="color-white large-text"><?php the_field('s4_copy');?></div>
 							</div>
 						</div>
 					</div>
@@ -282,7 +297,7 @@ get_header(); ?>
 							<div class="right cell small-12 xmedium-9">
 								
 								<?php if( have_rows('faqs') ):?>
-								<ul class="accordion" data-accordion>
+								<ul class="accordion" data-accordion data-allow-all-closed="true">
 									<?php while ( have_rows('faqs') ) : the_row();?>
 									
 										<?php if( have_rows('single_faq') ):?>
@@ -312,13 +327,14 @@ get_header(); ?>
 
 							<div class="cell small-12 medium-shrink primary-bg">
 								<div class="inner primary-bg">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/quote.svg">
 									<h2 class="font-alt"><?php the_field('testimonial_heading');?></h2>
 								</div>
 							</div>
 
-							<div class="cell auto gray-bg">
-								<div class="grid-x grid-padding-x">
-									<div class="inner cell small-12 large-6">
+							<div class="right cell auto gray-bg">
+								<div class="grid-x grid-padding-x align-middle">
+									<div class="inner left cell small-12">
 										<?php if( have_rows('testimonial_slider') ):?>
 										<div class="testimonial-slider">
 											<?php while ( have_rows('testimonial_slider') ) : the_row();?>	
@@ -334,6 +350,9 @@ get_header(); ?>
 										
 											<?php endwhile;?>
 										</div>
+										<div class="slider-progress">
+											<span></span>
+										</div>	
 										<?php endif;?>
 									</div>
 								</div>
@@ -345,11 +364,11 @@ get_header(); ?>
 				
 				<section class="team">
 					<div class="grid-container">
-						<div class="grid-x grid-padding-x">
-							<div class="cell small-12 medium-4 large-3"><h2><?php the_field('team_heading');?></h2></div>
+						<div class="heading grid-x grid-padding-x">
+							<div class="cell small-12 medium-4 large-3"><h2 class="font-alt"><?php the_field('team_heading');?></h2></div>
 							<div class="cell small-12 medium-8 large-9"><p><?php the_field('team_text');?></p></div>
 						</div>
-						<div class="grid-x grid-padding-x small-up-2 medium-up-4">
+						<div class="team-grid grid-x grid-padding-x small-up-2 medium-up-4">
 							
 							<?php if( have_rows('team_members') ):?>
 								<?php while ( have_rows('team_members') ) : the_row();?>	
@@ -364,8 +383,10 @@ get_header(); ?>
 										    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
 										<?php endif; ?>
 										
-										<h2><?php the_sub_field('name');?></h2>
-										<p><?php the_sub_field('title');?></p>
+										<div class="text-wrap">
+											<h2><?php the_sub_field('name');?></h2>
+											<p><?php the_sub_field('title');?></p>
+										</div>
 									</div>
 								
 									<?php endwhile;?>
@@ -380,13 +401,13 @@ get_header(); ?>
 				
 				<section class="cta">
 					<div class="grid-container">
-						<div class="grid-x grid-padding-x">
+						<div class="grid-x grid-padding-x align-middle">
 							
-							<div class="cell shrink">
+							<div class="cell small-12 medium-shrink">
 								<h2><?php the_field('cta_heading');?></h2>
 							</div>
 							
-							<div class="cell auto">
+							<div class="cell small-12 medium-auto">
 								<?php 
 								$link = get_field('cta_button_link');
 								if( $link ): 
@@ -394,7 +415,7 @@ get_header(); ?>
 								    $link_title = $link['title'];
 								    $link_target = $link['target'] ? $link['target'] : '_self';
 								    ?>
-								<div class="btn-wrap">
+								<div class="btn-wrap text-right">
 								    <a class="button" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
 								</div>
 								<?php endif; ?>

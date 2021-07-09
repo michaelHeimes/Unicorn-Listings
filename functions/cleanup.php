@@ -18,7 +18,7 @@ function joints_start() {
     add_filter('gallery_style', 'joints_gallery_style');
 
     // cleaning up excerpt
-    add_filter('excerpt_more', 'joints_excerpt_more');
+//     add_filter('excerpt_more', 'joints_excerpt_more');
 
 } /* end joints start */
 

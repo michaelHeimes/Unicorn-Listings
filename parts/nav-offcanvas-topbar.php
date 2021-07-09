@@ -9,7 +9,7 @@
  
 ?>
 
-<div class="top-bar" id="top-bar-menu" data-sticky data-margin-top="0" data-sticky-on="small">
+<div class="top-bar align-middle" id="top-bar-menu">
 	<div class="top-bar-left float-left">
 		<ul class="menu">
 			
@@ -28,10 +28,10 @@
 		
 		</ul>
 	</div>
-	<div class="top-bar-right show-for-large">
+	<div class="top-bar-right show-for-xmedium">
 		<?php joints_top_nav(); ?>	
 	</div>
-	<div class="menu-toggle-wrap top-bar-right float-right hide-for-large">
+	<div class="menu-toggle-wrap top-bar-right float-right hide-for-xmedium">
 		<ul class="menu">
 			<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
 			<li><a id="menu-toggle" data-toggle="off-canvas"><span></span><span></span><span></span></a></li>

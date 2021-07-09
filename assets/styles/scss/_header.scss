@@ -1,11 +1,97 @@
 header.header {
-	ul#main-nav {
-		li {
-			a {
-				font-size: rem-calc(25);
-				text-transform: uppercase;
-				font-weight: 600;
+	transition: all .5s ease;
+	
+	>.grid-container.fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	.top-bar {
+		padding: .75rem;
+		
+		@include breakpoint(medium) {
+			padding: 1.436rem;
+		}
+	
+		.top-bar-left {
+			max-width: 270px;
+			
+			@include breakpoint(medium) {
+				max-width: 100%;
+			}
+			
+		}
+	
+		ul#main-nav {
+			li {
+				a {
+					font-size: rem-calc(25);
+					text-transform: uppercase;
+					font-weight: 600;
+					position: relative;
+					
+				&:after {
+					content: '';
+					position: absolute;
+					left: 1rem;
+					right: 1rem;
+					bottom: 0;
+					height: 1px;
+					background-color: transparent;	
+				}
+					
+				}
+				
+			&.current-menu-item {
+				a:after {
+					background-color: $brand-primary;
+				}
+			}
+				
 			}
 		}
+		
+		.logo {
+			a {
+				padding: 0;
+			}
+		}
+		
+		.menu-toggle-wrap {
+			width: auto;
+			flex: 0 0 auto;
+    
+			#menu-toggle {
+				position: relative;
+				padding: 0;
+				width: 40px;
+				height: 40px;
+				
+				span {
+					position: absolute;
+					display: block;
+					background-color: $brand-primary;
+					width: 100%;
+					height: 6px;
+				
+				&:nth-child(1) {
+					top: 4px;
+				}
+					
+				&:nth-child(2) {
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				
+				&:nth-child(3) {
+					bottom: 4px;
+				}
+					
+				}
+			}
+		
+		}
+	
 	}
+	
 }

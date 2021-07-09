@@ -1,22 +1,35 @@
 .banner {
+	padding-top: 5rem;
+	
+	@include breakpoint(xmedium) {
+		padding-top: 0;
+	}
 	
 	.left {
 		position: relative;
 		z-index: 1;
-		padding-bottom: 138px;
+		padding-bottom: 3rem;
+		
+		@include breakpoint(xlarge) {
+			padding-bottom: 138px;
+		}
 		
 		.inner {
 			
-			@include breakpoint(medium) {
+			@include breakpoint(xmedium) {
 				width: 120%;
 				position: relative;
 			}
 			
 			h1 {
-				font-size: rem-calc(73);
+				font-size: rem-calc(50);
 				line-height: 1.1095;
 				
 				@include breakpoint(medium) {
+					font-size: rem-calc(73);
+				}
+				
+				@include breakpoint(xlarge) {
 					margin-left: -5%;
 				}
 				
@@ -33,7 +46,7 @@
 	
 	.right {
 		.inner.slider-wrap {
-			@include breakpoint(medium) {
+			@include breakpoint(xmedium) {
 				width: 55.5vw;
 				margin-left: -6.6vw;
 			}

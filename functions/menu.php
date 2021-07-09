@@ -4,7 +4,8 @@ register_nav_menus(
 	array(
 		'main-nav'		=> __( 'The Main Menu', 'jointswp' ),		// Main nav in header
 		'offcanvas-nav'	=> __( 'The Off-Canvas Menu', 'jointswp' ),	// Off-Canvas nav
-		'footer-links'	=> __( 'Footer Links', 'jointswp' )			// Secondary nav in footer
+		'footer-links'	=> __( 'Footer Links', 'jointswp' ),		// Secondary nav in footer
+		'blog-links'	=> __( 'Blog Links', 'jointswp' )			// Secondary nav in blog
 	)
 );
 
@@ -35,7 +36,7 @@ function joints_off_canvas_nav() {
 	wp_nav_menu(array(
 		'container'			=> false,							// Remove nav container
 		'menu_id'			=> 'offcanvas-nav',					// Adding custom nav id
-		'menu_class'		=> 'vertical menu accordion-menu',	// Adding custom nav class
+		'menu_class'		=> 'vertical menu accordion-menu grid-x grid-padding-x',	// Adding custom nav class
 		'items_wrap'		=> '<ul id="%1$s" class="%2$s" data-accordion-menu>%3$s</ul>',
 		'theme_location'	=> 'offcanvas-nav',					// Where it's located in the theme
 		'depth'				=> 5,								// Limit the depth of the nav
@@ -50,6 +51,19 @@ class Off_Canvas_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "\n$indent<ul class=\"vertical menu\">\n";
 	}
 }
+
+// The Blog Menu
+function joints_blog_links() {
+	wp_nav_menu(array(
+		'container'			=> 'false',				// Remove nav container
+		'menu_id'			=> 'blog-links',		// Adding custom nav id
+		'menu_class'		=> 'menu grid-x grid-padding-x',				// Adding custom nav class
+		'theme_location'	=> 'blog-links',		// Where it's located in the theme
+		'depth'				=> 0,					// Limit the depth of the nav
+		'fallback_cb'		=> '',				// Fallback function
+		'add_li_class'  => 'cell shrink'
+	));
+} /* End Footer Menu */
 
 // The Footer Menu
 function joints_footer_links() {

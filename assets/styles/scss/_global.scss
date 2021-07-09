@@ -3,6 +3,27 @@
 Stylesheet: Global Stylesheet
 
 *************************************************/
+body,
+html {
+	width: 100%;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+p.large-text,
+.large-text,
+.large-text p {
+	font-size: rem-calc(20);
+	
+	@include breakpoint(medium) {
+		font-size: rem-calc(25);
+	}
+	
+}
+
+
 .font-alt {
 	font-family: $font-alt;	
 	font-weight: 400;
@@ -28,31 +49,40 @@ Stylesheet: Global Stylesheet
 	color: $brand-secondary;
 }
 
-/* progress bar */
-.slider-progress{
-	margin-top: 53px;
+/* Progress Bar */
+.slider-progress {
+	margin-top: 32px;
 	position: relative;
 	width: 55%;
 	height: 1px;
 	background-color: scale-color($button-background, $lightness: 71%);
+	
+	@include breakpoint(medium) {
+		margin-top: 53px;
+	}
+
+	span {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		display: block;
+		width: 0px;
+		height: 100%;
+		background-color: $brand-primary;
+		transition: width 0s linear;
+		
+		&.active {
+			width: 100%;
+		}
+		
+	}
+
 }
-.slider-progress span{
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	display: block;
-	width: 0px;
-	height: 100%;
-	background-color: $brand-primary;
-	transition: width 0s linear;
-}
-.slider-progress span.active{
-	width: 100%;
-}
+
 
 // Step Cards
 .step-card {
-	margin-bottom: 1.5rem;
+	margin-bottom: 2.5rem;
 	
 	.inner {
 		max-width: 320px;
@@ -71,19 +101,88 @@ Stylesheet: Global Stylesheet
 
 // Red Gray
 .red-gray {
+	overflow: hidden;
 	.primary-bg {
 	    display: flex;
 	    align-items: flex-end;
-	    flex: 0 1 38%;
+	    flex: 0 1 100%;
+	    padding-left: .78rem;
+	    padding-bottom: .78rem;
+	    padding-top: .78rem;
+	    
+	    @include breakpoint(xmedium) {
+		    padding-top: 0;
+		    flex: 0 1 50%;
+	    }
 	    
 	    h2 {
-		    font-size: rem-calc(80);
+		    font-size: rem-calc(57);
 		    color: $white;
+		    
+		    @include breakpoint(xmedium) {
+			    font-size: rem-calc(80);
+		    }
+		    
 	    }
 	    
 	}
 	.left {
-		padding: 3.9rem 1.7rem 3.9rem 3.7rem;
+		padding: 1.9rem 1.7rem 1rem 1rem;
+		
+		@include breakpoint(xmedium) {
+			padding: 3.9rem 1.7rem 3.9rem 3.7rem;
+		}
+		
+	}
+	.gray-bg {
+		position: relative;
+		
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		height: 100%;
+		width: 50vw;
+		right: -50vw;
+		background-color: $brand-gray;
+	}
+		
+	}
+	
+	.slider-progress {
+		margin-bottom: 32px;
+		background-color: rgba(255,255,255,.29);
+		
+		span {
+			background-color: $brand-secondary;
+		}
+		
+	}
+	
+}
+
+// Slide Left Sliders
+.img-slider.slide-left {
+	position: relative;
+	
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 50vw;
+		background-color: $white;
+		left: -50vw;
+	}
+	
+	.slick-list {
+		overflow: visible;
+		
+		.slick-slide {
+			margin-right: 15px;
+		}
+		
 	}
 }
 
@@ -93,12 +192,67 @@ button,
 	line-height: 1;
 	text-transform: uppercase;
 	font-weight: 600;
+	font-size: 1rem;
+	
+	@include breakpoint(medium) {
+		font-size: 1.15rem;
+	}
 	
 &.secondary {
-	background-color: $brand-secondary;
+	background-color: $brand-secondary;  
+	
+	&:hover {
+		background-color: $brand-primary;
+	}
+	                      
 }
 	
 }
+
+// Accordions
+.accordion {
+	li.accordion-item {
+		.accordion-title {
+			line-height: 1.32;
+			border-top: 1px solid $brand-gray;
+			font-weight: 600;
+			transition: padding .25s ease .12s;	
+			font-size: 20px;
+			
+			@include breakpoint(medium) {
+				font-size: rem-calc(25);
+			}
+					
+		}
+		
+		.accordion-content {
+			padding-bottom: 2em;
+		}
+		
+	&:last-child {
+		border-bottom: 1px solid $brand-gray;
+	}
+
+		
+/*
+		.accordion-content {
+			line-height: 1.65;
+			font-size: rem-calc(20);
+		}
+*/
+		
+/*
+	&.is-active {
+		a {
+			padding-bottom: 0;
+			transition: padding .25s ease 0s;			
+		}
+	}
+*/
+		
+	}
+}
+
 
 /*********************
 POSTS & CONTENT STYLES

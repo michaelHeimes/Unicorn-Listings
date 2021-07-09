@@ -5,14 +5,24 @@
 		
 		.left {
 			.img-wrap {
-				width: 36vw;
-				margin-left: -13vw;	
+				width: 70%;
+				margin-left: -.75rem;	
+				
+				@include breakpoint(xmedium) {
+					width: 36vw;
+					margin-left: -13vw;	
+				}
+				
 			}
 			
 		}
 		
 		.right {
-			padding-top: 6.45rem;
+			padding-top: 1.45rem;
+			
+			@include breakpoint(xmedium) {
+				padding-top: 6.45rem;
+			}
 			
 			h2 {
 				font-size: rem-calc(45);
@@ -24,8 +34,15 @@
 	}
 	
 	.s2 {
-		padding-top: 9.45rem;
-		padding-bottom: 12rem;
+		padding-top: 3.45rem;
+		
+		@include breakpoint(medium) {
+			padding-top: 6.45rem;
+		}
+
+		@include breakpoint(xmedium) {
+			padding-top: 9.45rem;
+		}
 		
 		.heading-wrap {
 			position: relative;
@@ -50,15 +67,25 @@
 		}
 		
 		.bottom {
-			padding-top: 3.9rem;
+			padding-top: 2rem;
+			
+			@include breakpoint(medium) {
+				padding-top: 3.9rem;
+			}
+			
 		}
 		
 	}
 	
 	.offerings.red-gray {
+		padding-bottom: 4rem;
+		
+		@include breakpoint(xmedium) {
+			padding-bottom: 7rem;
+		}
 		
 		.grid-container.fluid {
-			margin-bottom: 20em;
+			margin-bottom: 2.6rem;
 			.gray-bg {
 				padding-right: 0;
 			}	
@@ -66,28 +93,221 @@
 			.right {
 				position: relative;
 				padding-left: 0;
-				.inner {
-					margin-top: -10rem;
-					margin-bottom: -10rem;
-	// 				position: absolute;
-	
-					img {
-	// 					position: absolute;
-						top: -17rem;
-					}
-				}			
+			    padding-right: 0;
+			    
+			    @include breakpoint(xmedium) {
+			    	max-width: 444px;
+			    }
+		
 			}
 			
 			.secondary-bg {
-				margin-top: 6.7rem;
-				padding: 2.8rem 3.07rem;
+				position: relative;
+				padding: 1.9rem 2.45rem 1rem 1.75rem;
+				
+				@include breakpoint(xmedium) {
+					max-width: 444px;
+					margin-top: 4rem;
+					padding: 2.8rem 3.07rem;
+				}
+				
 			}
 			.gray-bg {
 				
 			}
 		
 		}
+		
+		.img-slider {
+			max-width: 640px;
+		}
 			
+	}
+	
+	.s4 {
+		padding-top: 3.3rem;
+		padding-bottom: 2.6rem;
+		position: relative;
+		
+		@include breakpoint(medium) {
+			padding-top: 5.3rem;
+			padding-bottom: 4.6rem;
+		}
+		
+		.bg,
+		.mask {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-size: cover;
+		    background-repeat: no-repeat;
+		    background-position: 0 0;
+		    background-position: center center;
+		}
+		.mask {
+			background-color: $brand-gray;
+			opacity: .71;
+		}
+		
+		.bg {
+			background-attachment: fixed;
+		}
+		
+		.grid-container {
+			position: relative;
+			
+			h2 {
+				line-height: 1.219;
+				font-size: rem-calc(58);
+				
+				@include breakpoint(medium) {
+					font-size: rem-calc(73);
+				}
+				
+			}
+			
+			h3 {
+				font-family: $font-alt;
+				font-size: rem-calc(32);
+				line-height: 1.3111;
+				font-weight: 500;
+				
+				@include breakpoint(medium) {
+					font-size: rem-calc(45);
+				}
+				
+			}
+			
+			p {
+				line-height: 1.92;
+			}
+			
+		}
+		
+	}
+	
+	.faqs {
+		padding-top: 4.15rem;
+		padding-bottom: 5.65rem;
+		
+		@include breakpoint(medium) {
+			padding-top: 8.15rem;
+			padding-bottom: 9.65rem;			
+		}
+		
+		h2 {
+			font-size: rem-calc(45);
+			line-height: 1.311;
+		}
+		
+	}
+	
+	.testimonials.red-gray {
+		overflow: visible;
+		
+		.inner.primary-bg {
+			flex-direction: column;
+			align-items: flex-start;
+			
+			img {
+				position: relative;
+			    top: -3.4rem;
+				margin-bottom: 1.6rem;
+				max-width: 150px;
+				
+				@include breakpoint(medium) {
+					margin-bottom: 6.6rem;
+					max-width: 100%;	
+				}
+				
+			}
+			
+		}
+		
+		.right .grid-x {
+			height: 100%;
+			
+			.testimonial-slider {
+				p {
+					font-size: rem-calc(25);
+					line-height: 1.8;
+				}
+			}
+			
+		}
+				
+	}
+	
+	.team {
+		padding-top: 4.1rem;
+		padding-bottom: 1rem;
+		
+		@include breakpoint(xmedium) {
+			padding-top: 7.1rem;
+			padding-bottom: 9.65rem;			
+		}
+		
+		.heading {
+			padding-bottom: 2rem;
+			
+			@include breakpoint(xmedium) {
+				padding-bottom: 6.55rem;
+			}
+			
+			h2 {
+				font-size: rem-calc(45);
+			}
+			p {
+				font-size: rem-calc(25);
+				line-height: 1.8;
+			}
+		}
+		
+		.team-grid {
+			.cell {
+				margin-bottom: 1.5rem;
+				
+				.text-wrap {
+					padding-top: .9rem;
+					max-width: 194px;
+					
+					h2 {
+						color: $brand-primary;
+					}
+				}
+			}
+		}
+		
+	}
+	
+	.cta {
+		padding-bottom: 4rem;
+		
+		@include breakpoint(xmedium) {
+			padding-bottom: 10.3rem;
+		}
+		
+		h2 {
+			font-size: rem-calc(60);
+			line-height: 1;
+			margin-bottom: .5em;
+			
+			@include breakpoint(xmedium) {
+				margin-bottom: 0;
+				font-size: rem-calc(72);
+			}
+			
+		}
+		.btn-wrap {
+			a {
+				width: 100%;
+				max-width: 640px;
+				text-transform: none;
+				padding: 2.175rem;
+			}
+		}
 	}
 	
 }

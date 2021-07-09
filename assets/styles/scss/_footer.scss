@@ -1,0 +1,101 @@
+footer.footer {
+	padding-top: 5.15rem;
+	color: $white;
+	
+	a {
+		color: $white;
+	}
+	
+	.logo-wrap {
+		padding-bottom: 2.85rem;
+	}
+	
+	.left,
+	.middle,
+	.right {
+		padding-top: 1.75rem;
+		padding-bottom: 1.55rem;
+	}
+	
+	.left,
+	.middle {
+		position: relative;
+		
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		width: 1px;
+	}
+		
+	}
+	
+	.left:after {
+		@include breakpoint(medium) {
+			background-color: $white;
+
+		}
+	}
+
+	.middle:after {
+		@include breakpoint(xmedium) {
+			background-color: $white;
+
+		}
+	}
+	
+	ul#footer-links {
+    	flex-direction: column;
+    	
+    	a {
+	    	font-size: rem-calc(25);
+	    	margin: .45rem 0;
+	    	padding: 0;
+    	}
+    	
+	}
+		
+	.social-links {
+		padding-top: 4rem;
+		
+		@include breakpoint(xmedium) {
+			padding-top: 0;
+		}
+		
+		.inner {
+			height: 100%;
+			justify-content: center;
+			
+			a {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin: .55rem;
+			}
+		}
+	}
+	
+	.bottom {
+		padding-top: 4.4rem;
+		padding-bottom: 3.3rem;
+		
+		@include breakpoint(xmedium) {
+			padding-top: 9.4rem;
+			padding-bottom: 3.3rem;			
+		}
+		
+		.source-org {
+			font-size: rem-calc(12);
+			letter-spacing: -.2px;
+			color: #A9ABAD;
+			
+			a {
+				color: #A9ABAD;
+			}
+			
+		}
+	}
+	
+}
