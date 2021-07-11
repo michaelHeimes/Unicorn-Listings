@@ -156,6 +156,10 @@ get_header(); ?>
 								// Display customized HTML.
 								echo $iframe;
 								?>
+								
+								
+								<?php the_field('homebot_script');?>
+								
 							</div>							
 						</div>
 						
