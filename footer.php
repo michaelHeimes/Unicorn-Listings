@@ -46,7 +46,7 @@
 							
 							<div class="social-links cell small-12 medium-12 xmedium-4 large-3">
 								<nav class="inner grid-x align-middle align-middle">
-									<a href="" target="_blank">
+									<a href="<?php the_field('facebook_url', 'option');?>" target="_blank">
 										<svg width="10px" height="19px" viewBox="0 0 10 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 										    <title>facebook icon</title>
 										    <g id="faceboo-icon-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -57,7 +57,7 @@
 										</svg>
 									</a>
 									
-									<a href="" target="_blank">
+									<a href="<?php the_field('instagram_url', 'option');?>" target="_blank">
 										<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 										    <title>instagram-icon</title>
 										    <g id="instagram-icon-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -70,7 +70,7 @@
 										</svg>									
 									</a>
 									
-									<a href="#" target="_blank">
+									<a href="<?php the_field('twitter_url', 'option');?>" target="_blank">
 										<svg width="20px" height="16px" viewBox="0 0 20 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 										    <title>twitter icon</title>
 										    <g id="twitter-icon-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -81,7 +81,7 @@
 										</svg>									
 									</a>
 									
-									<a href="" target="_blank">
+									<a href="<?php the_field('youtube_url', 'option');?>" target="_blank">
 										<svg width="22px" height="16px" viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 										    <title>youtube-icon</title>
 										    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -92,7 +92,7 @@
 										</svg>									
 									</a>
 									
-									<a href="" target="_blank">
+									<a href="<?php the_field('linkedin_url', 'option');?>" target="_blank">
 										<svg width="13px" height="12px" viewBox="0 0 13 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 										    <title>linkedin icon</title>
 										    <g id="linkedin-icon-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -111,15 +111,19 @@
 									<div class="source-org copyright cell small-12 medium-auto">&copy; Copyright <?php echo date('Y'); ?> <?php bloginfo('name'); ?> | <a href="https://proprdesign.com/" target="_blank">Made by Propr Design</a></div>
 									
 									<div class="cell small-12 medium-shrink">
-										<?php if( have_rows('bottom_logos', 'option') ):?>
-											<?php while ( have_rows('bottom_logos', 'option') ) : the_row();?>	
-												<?php 
-												$image = get_sub_field('single_logo');
-												if( !empty( $image ) ): ?>
-												    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-												<?php endif; ?>									
-											<?php endwhile;?>
-										<?php endif;?>
+										<div class="grid-x grid-padding-x align-middle">
+											<?php if( have_rows('bottom_logos', 'option') ):?>
+												<?php while ( have_rows('bottom_logos', 'option') ) : the_row();?>	
+													<?php 
+													$image = get_sub_field('single_logo');
+													if( !empty( $image ) ): ?>
+													<div class="cell shrink">
+													    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+													</div>
+													<?php endif; ?>									
+												<?php endwhile;?>
+											<?php endif;?>
+										</div>
 									</div>
 									
 								</div>
